@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+ 
+    <!--
+    	See http://wiki.openmrs.org/display/docs/Module+liquibase+File for 
+    	documentation on this file.
+    
+        See http://www.liquibase.org/manual/home#available_database_refactorings
+        for a list of supported elements and attributes
+    -->
+ 
+ 		<changeSet id="basicmodule-2013-09-09-15:50" author="neeti">
+		<preConditions onFail="MARK_RAN">
+			<not><tableExists tableName="basicmodule_radiologygroup"/></not>
+		</preConditions>
+		<comment>
+			Creating the basicmodule_radiology_group table
+		</comment>
+		<createTable tableName="basicmodule_radiologygroup">
+			<column name="uuid" type="varchar(38)">
+				<constraints primaryKey="true" unique="true" nullable="false"/>
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="orderType" type="varchar(50)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="modality" type="varchar(10)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="bodyScan" type="varchar(75)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="startDate" type="Date">
+				<constraints nullable="false"/>
+			</column>
+                         <column name="expiryDate" type="Date">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="refPhyName" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="perPhyName" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="readPhyName" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="scheduledStatus" type="varchar(25)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="performedStatus" type="varchar(25)">
+				<constraints nullable="false"/>
+			</column>
+                        <column name="addInfo" type="varchar(2000)">
+				<constraints nullable="false"/>
+			</column>
+                </createTable>
+    </changeSet>
+</databaseChangeLog>

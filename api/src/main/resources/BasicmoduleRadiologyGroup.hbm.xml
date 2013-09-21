@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.openmrs.module.basicmodule">
+<class name="RadiologyGroup" table="basicmodule_radiologygroup">
+       <property name="uuid"        type="java.lang.String"     column="uuid" length="38" not-null="true" unique="true"/>
+       <property name="name"        type="java.lang.String"     column="name" length="255" not-null="true"/>
+       <property name="orderType"   type="java.lang.String"     column="orderType" length="50" not-null="true"/>
+       <property name="modality"   type="java.lang.String"     column="modality" length="10" not-null="true"/>
+       <property name="bodyScan"   type="java.lang.String"     column="bodyScan" length="75" not-null="true"/>
+       <property name="startDate"    type="java.util.Date"       column="startDate" not-null="true" length="19"/>
+       <property name="expiryDate"    type="java.util.Date"       column="expiryDate"  not-null="true" length="19"/>
+       <property name="refPhyName"    type="java.lang.String"     column="refPhyName" length="255" not-null="true"/>
+       <property name="perPhyName"    type="java.lang.String"     column="perPhyName" length="255" not-null="true"/>
+       <property name="readPhyName"    type="java.lang.String"     column="readPhyName" length="255" not-null="true"/>
+       <property name="scheduledStatus"  type="java.lang.String"     column="scheduledStatus" length="25" not-null="true"/>
+       <property name="performedStatus"  type="java.lang.String"     column="performedStatus" length="25" not-null="true"/>      
+       <property name="addInfo"     type="java.lang.String"     column="addInfo" length="2000"/>
+        <set name="radiology" table="basicmodule_radiologygroup" cascade="all">
+            <key column="uuid" />
+        </set>
+    </class>
+</hibernate-mapping>
