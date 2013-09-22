@@ -35,7 +35,7 @@ import org.openmrs.module.basicmodule.RadiologyGroup;
 import org.openmrs.module.basicmodule.RadiologyGroupService;
 
 @Controller
-@RequestMapping(value = "/rest/v1/basicmodule/radiologystudy")
+@RequestMapping(value = "ws/rest/v1/basicmodule/radiologystudy")
 public class RadiologyRestController extends BaseRestController{
     Gson gson = new GsonBuilder().serializeNulls().create();
 /**
